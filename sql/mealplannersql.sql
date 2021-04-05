@@ -69,7 +69,7 @@ CREATE TABLE supermarket(
 CREATE TABLE meals(
     mealID int auto_increment not null,
     totalCal int not null,
-    uName VARCHAR(30) NOT NULL UNIQUE,
+    uName VARCHAR(30) NOT NULL,
     primary key (mealID),
     foreign key (uName) references account(uName) on update cascade on delete cascade
 );
@@ -79,7 +79,7 @@ CREATE TABLE breakfast(
     recID int not null,
     servings int not null,
     calories varchar(50) not null,
-    uName VARCHAR(30) NOT NULL UNIQUE,
+    uName VARCHAR(30) NOT NULL,
     primary key (mealID),
     foreign key (recID) references recipe(recID) on update cascade on delete cascade,
     foreign key(uName) references account(uName) on update cascade on delete cascade
@@ -90,7 +90,7 @@ CREATE TABLE lunch(
     recID int not null,
     servings int not null,
     calories varchar(50) not null,
-    uName VARCHAR(30) NOT NULL UNIQUE,
+    uName VARCHAR(30) NOT NULL,
     primary key (mealID),
     foreign key (recID) references recipe(recID) on update cascade on delete cascade,
     foreign key(uName) references account(uName) on update cascade on delete cascade
@@ -101,7 +101,7 @@ CREATE TABLE dinner(
     recID int not null,
     servings int not null,
     calories varchar(50) not null,
-    uName VARCHAR(30) NOT NULL UNIQUE,
+    uName VARCHAR(30) NOT NULL,
     primary key (mealID),
     foreign key (recID) references recipe(recID) on update cascade on delete cascade,
     foreign key(uName) references account(uName) on update cascade on delete cascade
@@ -111,6 +111,5 @@ CREATE TABLE account (
     uName VARCHAR(30) NOT NULL UNIQUE,
     password VARCHAR(30) NOT NULL,
     primary key(uName)
-   
 );
 */
