@@ -35,7 +35,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    
     <link rel="stylesheet" href="proj.css">
 
 </head>
@@ -81,7 +81,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
                             <?php
 
-                                $query = "SELECT recID, recName FROM recipe";
+                                $query = "SELECT recID, recName FROM recipe LIMIT 1000";
                                 $result = mysqli_query($conn, $query);
 
                                 while($row = mysqli_fetch_array($result)) {
@@ -103,7 +103,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                     }
                                 }
                             ?>
-                            </select>
                         </td>
                         <td>
                             <input type="number" name="bServings" class="form-control" placeholder="Servings">
@@ -117,7 +116,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
                             <?php
 
-                                $query2 = "SELECT recID, recName FROM recipe";
+                                $query2 = "SELECT recID, recName FROM recipe LIMIT 1000";
                                 $result2 = mysqli_query($conn, $query2);
 
                                 while($row = mysqli_fetch_array($result2)) {
@@ -139,7 +138,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                     }
                                 }
                             ?>
-                            </select>
                         </td>
                         <td>
                             <input type="number" name="bServings2" class="form-control" placeholder="Servings">
@@ -153,7 +151,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
                             <?php
 
-                                $query3 = "SELECT recID, recName FROM recipe";
+                                $query3 = "SELECT recID, recName FROM recipe LIMIT 1000";
                                 $result3 = mysqli_query($conn, $query3);
 
                                 while($row = mysqli_fetch_array($result3)) {
@@ -175,7 +173,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                     }
                                 }
                             ?>
-                            </select>
                         </td>
                         <td>
                             <input type="number" name="bServings3" class="form-control" placeholder="Servings">
@@ -189,7 +186,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
                             <?php
 
-                                $query4 = "SELECT recID, recName FROM recipe";
+                                $query4 = "SELECT recID, recName FROM recipe LIMIT 1000";
                                 $result4 = mysqli_query($conn, $query4);
 
                                 while($row = mysqli_fetch_array($result4)) {
@@ -211,7 +208,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                     }
                                 }
                             ?>
-                            </select>
                         </td>
                         <td>
                             <input type="number" name="bServings4" class="form-control" placeholder="Servings">
@@ -225,7 +221,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
                             <?php
 
-                                $query5 = "SELECT recID, recName FROM recipe";
+                                $query5 = "SELECT recID, recName FROM recipe LIMIT 1000";
                                 $result5 = mysqli_query($conn, $query5);
 
                                 while($row = mysqli_fetch_array($result5)) {
@@ -247,7 +243,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                     }
                                 }
                             ?>
-                            </select>
                         </td>
                         <td>
                             <input type="number" name="bServings5" class="form-control" placeholder="Servings">
@@ -261,7 +256,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
                             <?php
 
-                                $query6 = "SELECT recID, recName FROM recipe";
+                                $query6 = "SELECT recID, recName FROM recipe LIMIT 1000";
                                 $result6 = mysqli_query($conn, $query6);
 
                                 while($row = mysqli_fetch_array($result6)) {
@@ -283,7 +278,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                     }
                                 }
                             ?>
-                            </select>
                         </td>
                         <td>
                             <input type="number" name="bServings6" class="form-control" placeholder="Servings">
@@ -297,7 +291,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
                             <?php
 
-                                $query7 = "SELECT recID, recName FROM recipe";
+                                $query7 = "SELECT recID, recName FROM recipe LIMIT 1000";
                                 $result7 = mysqli_query($conn, $query7);
 
                                 while($row = mysqli_fetch_array($result7)) {
@@ -319,7 +313,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                     }
                                 }
                             ?>
-                            </select>
                         </td>
                         <td>
                             <input type="number" name="bServings7" class="form-control" placeholder="Servings">
@@ -343,7 +336,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
                             <?php
 
-                                $query = "SELECT recID, recName FROM recipe";
+                                $query = "SELECT recID, recName FROM recipe LIMIT 1000";
                                 $result = mysqli_query($conn, $query);
 
                                 while($row = mysqli_fetch_array($result)) {
@@ -365,7 +358,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                     }
                                 }
                             ?>
-                            </select>
                         </td>
 
                         <td>
@@ -380,7 +372,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
                             <?php
 
-                                $query2 = "SELECT recID, recName FROM recipe";
+                                $query2 = "SELECT recID, recName FROM recipe LIMIT 1000";
                                 $result2 = mysqli_query($conn, $query2);
 
                                 while($row = mysqli_fetch_array($result2)) {
@@ -402,7 +394,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                     }
                                 }
                             ?>
-                            </select>
                         </td>
 
                         <td>
@@ -417,7 +408,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
                             <?php
 
-                                $query3 = "SELECT recID, recName FROM recipe";
+                                $query3 = "SELECT recID, recName FROM recipe LIMIT 1000";
                                 $result3 = mysqli_query($conn, $query3);
 
                                 while($row = mysqli_fetch_array($result3)) {
@@ -439,7 +430,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                     }
                                 }
                             ?>
-                            </select>
                         </td>
 
                         <td>
@@ -454,7 +444,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
                             <?php
 
-                                $query4 = "SELECT recID, recName FROM recipe";
+                                $query4 = "SELECT recID, recName FROM recipe LIMIT 1000";
                                 $result4 = mysqli_query($conn, $query4);
 
                                 while($row = mysqli_fetch_array($result4)) {
@@ -476,7 +466,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                     }
                                 }
                             ?>
-                            </select>
                         </td>
 
                         <td>
@@ -491,7 +480,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
                             <?php
 
-                                $query5 = "SELECT recID, recName FROM recipe";
+                                $query5 = "SELECT recID, recName FROM recipe LIMIT 1000";
                                 $result5 = mysqli_query($conn, $query5);
 
                                 while($row = mysqli_fetch_array($result5)) {
@@ -513,7 +502,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                     }
                                 }
                             ?>
-                            </select>
                         </td>
 
                         <td>
@@ -528,7 +516,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
                             <?php
 
-                                $query6 = "SELECT recID, recName FROM recipe";
+                                $query6 = "SELECT recID, recName FROM recipe LIMIT 1000";
                                 $result6 = mysqli_query($conn, $query6);
 
                                 while($row = mysqli_fetch_array($result6)) {
@@ -565,7 +553,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
                             <?php
 
-                                $query7 = "SELECT recID, recName FROM recipe";
+                                $query7 = "SELECT recID, recName FROM recipe LIMIT 1000";
                                 $result7 = mysqli_query($conn, $query7);
 
                                 while($row = mysqli_fetch_array($result7)) {
@@ -612,7 +600,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
                             <?php
 
-                                $query = "SELECT recID, recName FROM recipe";
+                                $query = "SELECT recID, recName FROM recipe LIMIT 1000";
                                 $result = mysqli_query($conn, $query);
 
                                 while($row = mysqli_fetch_array($result)) {
@@ -648,7 +636,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
                             <?php
 
-                                $query2 = "SELECT recID, recName FROM recipe";
+                                $query2 = "SELECT recID, recName FROM recipe LIMIT 1000";
                                 $result2 = mysqli_query($conn, $query2);
 
                                 while($row = mysqli_fetch_array($result2)) {
@@ -684,7 +672,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
                             <?php
 
-                                $query3 = "SELECT recID, recName FROM recipe";
+                                $query3 = "SELECT recID, recName FROM recipe LIMIT 1000";
                                 $result3 = mysqli_query($conn, $query3);
 
                                 while($row = mysqli_fetch_array($result3)) {
@@ -720,7 +708,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
                             <?php
 
-                                $query4 = "SELECT recID, recName FROM recipe";
+                                $query4 = "SELECT recID, recName FROM recipe LIMIT 1000";
                                 $result4 = mysqli_query($conn, $query4);
 
                                 while($row = mysqli_fetch_array($result4)) {
@@ -756,7 +744,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
                             <?php
 
-                                $query5 = "SELECT recID, recName FROM recipe";
+                                $query5 = "SELECT recID, recName FROM recipe LIMIT 1000";
                                 $result5 = mysqli_query($conn, $query5);
 
                                 while($row = mysqli_fetch_array($result5)) {
@@ -792,7 +780,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
                             <?php
 
-                                $query6 = "SELECT recID, recName FROM recipe";
+                                $query6 = "SELECT recID, recName FROM recipe LIMIT 1000";
                                 $result6 = mysqli_query($conn, $query6);
 
                                 while($row = mysqli_fetch_array($result6)) {
@@ -828,7 +816,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
                             <?php
 
-                                $query7 = "SELECT recID, recName FROM recipe";
+                                $query7 = "SELECT recID, recName FROM recipe LIMIT 1000";
                                 $result7 = mysqli_query($conn, $query7);
 
                                 while($row = mysqli_fetch_array($result7)) {

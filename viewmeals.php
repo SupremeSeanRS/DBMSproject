@@ -29,7 +29,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     <style>
         table {
             border-collapse: collapse;
-            width: 75%;
+            width: 80%;
             font-size: 20px;
             text-align: center;
 
@@ -80,9 +80,9 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     <!--Breakfast-->
     <h1 class="display-4 mt-4 text-center">Here are your meals for the week!</h1> <br>
     <p class="lead text-center"> Sunday - Saturday </p>
-    <div class="row mt-1 mx-auto col-lg-10 ">
+    <div class="row mt-1 mx-auto col-lg-10">
    
-        <div class="container mb-5 col-lg-4 mt-5">
+        <div class="container mb-5 col-lg-3 mt-5">
             <table>
                 <tr>
 
@@ -123,7 +123,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
         <!--Lunch Table-->
 
-        <div class="container mb-5 col-lg-4 mt-5">
+        <div class="container mb-5 col-lg-3 mt-5">
             <table>
                 <tr>
                     <th>Lunch Meals </th>
@@ -157,7 +157,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
         <!--Dinner Table-->
 
-        <div class="container mb-5 col-lg-4 mt-5">
+        <div class="container mb-5 col-lg-3 mt-5">
             <table>
                 <tr>
                     <th>Dinner Meals </th>
@@ -188,6 +188,39 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             </table>
         </div>
 
+    
+
+        <div class="container mb-5 col-lg-3 mt-5">
+            <table>
+                <tr>
+                    <th>Total Calories per Meal</th>
+                </tr>
+
+                <?php
+                    $conn = mysqli_connect("localhost", "root", "", "mealplan");
+                    // Check connection
+                    if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+                    }
+
+                    $name = ($_SESSION["username"]);
+                    $cal="SELECT (breakfast.calories+lunch.calories + dinner.calories) AS 'Total' FROM breakfast JOIN lunch JOIN dinner ON breakfast.mealID=lunch.mealID AND lunch.mealID=dinner.mealID AND breakfast.mealID=dinner.mealID WHERE breakfast.mealID=lunch.mealID AND dinner.mealID=breakfast.mealID AND lunch.mealID=breakfast.mealID AND breakfast.uName='{$name}' AND lunch.uName='{$name}' AND dinner.uName='{$name}'";
+                    //$sql1 = "SELECT DISTINCT recipe.recName FROM dinner JOIN recipe ON dinner.recID=recipe.recID WHERE dinner.uName='{$name}' ";
+                    $calresult = $conn->query($cal);
+                    if (isset($calresult->num_rows) && $calresult->num_rows > 0) {
+
+                        while ($row = $calresult->fetch_assoc()) {
+                            echo "<tr> <td>" . $row["Total"] . "</td></tr>";
+                        }
+                        echo "</table>";
+                    } else {
+                        echo "0 results";
+                    }
+
+                    $conn->close();
+                ?>
+            </table>
+        </div>
     </div>
 
     <!--Shopping List-->
