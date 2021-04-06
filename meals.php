@@ -52,22 +52,20 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
-                <a href="#" class="nav-item nav-link">Home</a>
+                <a href="http://localhost/mealplanner/welcome.php" class="nav-item nav-link">Home</a>
                 <a href="http://localhost/mealplanner/recipeAdd.php" class="nav-item nav-link">Add Recipe</a>
                 <a href="http://localhost/mealplanner/meals.php" class="nav-item nav-link active text-primary">Plan Weekly Meal</a>
+                <a href="http://localhost/mealplanner/viewmeals.php" class="nav-item nav-link">View Meals, Ingredients & Shopping List</a>
             </div>
             <div class="navbar-nav ml-auto">
-                <a href="#" class="nav-item nav-link">Welcome, <?php echo htmlspecialchars($_SESSION["username"]); ?></a>
-                <a href="http://localhost/mealplanner/logout.php" class="nav-item nav-link">Logout</a>
+                <a href="#" class="nav-item nav-link text-info">Welcome, <?php echo htmlspecialchars($_SESSION["username"]); ?></a>
+                <a href="http://localhost/mealplanner/logout.php" class="nav-item nav-link text-danger">Logout</a>
             </div>
         </div>
     </nav>
 
     <form class="insert-form" id="insert_form" method="POST" action="">
         <div class="container-fluid mt-3">
-            <?php
-            echo $_SESSION['username'];
-            ?>
             <h2 class="text-center text-primary">BREAKFAST</h2>
             <div class="container">
                 <table class="table table-bordered" id="breakfast_field">

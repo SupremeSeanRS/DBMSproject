@@ -9,13 +9,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
 }
-
-$connect = mysqli_connect("localhost", "root", "", "mealplan");
-$query = "CREATE VIEW sS as SELECT ingredientID FROM recIngredient WHERE (recID = 10)";
-$result = mysqli_query($connect, $query);
-
-$iquery= "SELECT ingrName FROM ingredients WHERE (ingrID IN (SELECT * FROM sS))";
-$iresult = mysqli_query($connect, $iquery);
 ?>
 <!DOCTYPE html>
 
@@ -69,21 +62,43 @@ $iresult = mysqli_query($connect, $iquery);
                         <td>Ingredient Name</td>
                     </tr>
                 </thead>
-                <?php
-                while($row = mysqli_fetch_array($iresult)) {
-                    echo '
-                    <tr>
-                        <td class="col-lg-6 text-info">'.$row["ingrName"].'</td>
-                    ';
-                }
-                ?>
+                <?php /*
+                    $vnum = 1;
+                    $vmax = 8;
+                    while ($vnum <= $vmax) {
+                        CREATE VIEW sSS as SELECT recID from breakfast WHERE (mealID=2);
+                        CREATE VIEW mew as SELECT ingredientID from recIngredient WHERE (recID IN (SELECT * FROM sSS));
+                        SELECT ingrName FROM ingredients WHERE (ingrID IN (SELECT * FROM mew));
+                        $connect = mysqli_connect("localhost", "root", "", "mealplan");
+                        $query = "CREATE VIEW sS$vnum as SELECT ingredientID FROM recIngredient WHERE (recID = $vnum)";
+                        $query = "CREATE VIEW sSS$vnum as SELECT recID from breakfast WHERE (mealID = $vnum)";
+                        $query2 = "CREATE VIEW mew$vnum as SELECT ingredientID from recIngredient WHERE (recID IN (SELECT * FROM sSS$vnum));";
+                        $result = mysqli_query($connect, $query);
+                        $result2 = mysqli_query($connect, $query2);
+                        
+                        
+                        $iquery = "SELECT ingrName FROM ingredients WHERE (ingrID IN (SELECT * FROM sS$vnum))";
+                        $iquery = "SELECT ingrName FROM ingredients WHERE (ingrID IN (SELECT * FROM mew$vnum));";
+                        $iresult = mysqli_query($connect, $iquery);
+                        while($row = mysqli_fetch_array($iresult)) {
+                            echo $vnum;
+                            echo '
+                            <tr>
+                                <td class="col-lg-6 text-info">'.$row["ingrName"].'</td>
+                            </tr>';
+                            $vnum++;
+                        }
+                    
+                    }
+                    
+                 */?>
             </table>
         </div>
     </body>
 </html>
 
-<script>
+<!--<script>
     $(document).ready(function() {
         $('#ingredient_data').DataTable();
     });
-</script>
+</script>-->

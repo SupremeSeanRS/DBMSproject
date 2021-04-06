@@ -27,7 +27,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <script type="text/javascript">
         $(document).ready(function () {
             var html =
-                '<tr><td><select class="form-control" id="ingredient" name="ingredient[]" required><option class="form-control" selected disabled> -- Ingredient List -- </option><option class="form-control" value="Sauce">Sauce</option><option class="form-control" value="Wheat">Wheat</option><option class="form-control" value="Grains">Grains</option><option class="form-control" value="Seasoning">Seasoning</option><option class="form-control" value="Vegetables">Vegetables</option><option class="form-control" value="Dairy">Dairy</option><option class="form-control" value="Fruits">Fruits</option><option class="form-control" value="Beans">Beans</option></select></td><td><select class="form-control" id="measurement" name="measurement[]" required><option class="form-control" selected disabled> -- Measurement List -- </option><option class="form-control" value="1 cup">1 Cup</option><option class="form-control" value="1/2 cup">1/2 Cup</option><option class="form-control" value="1 ounce">1 ounce</option><option class="form-control" value="1 tablespoon">1 tablespoon</option><option class="form-control" value="1 gallon">1 gallon</option><option class="form-control" value="16 ounces">16 ounces</option><option class="form-control" value="1 pound">1 pound</option></select></td><td><input class="btn btn-danger" type="button" name="removeBtn" id="removeBtn" value="Remove"></td></tr>';
+                '<tr><td><select class="form-control" id="ingredient" name="ingredient[]" required><option class="form-control" selected disabled> -- Ingredient List -- </option><option class="form-control" value="Sauce">Sauce</option><option class="form-control" value="Wheat">Wheat</option><option class="form-control" value="Grains">Grains</option><option class="form-control" value="Seasoning">Seasoning</option><option class="form-control" value="Vegetables">Vegetables</option><option class="form-control" value="Meat">Meat</option><option class="form-control" value="Dairy">Dairy</option><option class="form-control" value="Fruits">Fruits</option><option class="form-control" value="Beans">Beans</option></select></td><td><select class="form-control" id="measurement" name="measurement[]" required><option class="form-control" selected disabled> -- Measurement List -- </option><option class="form-control" value="1 cup">1 Cup</option><option class="form-control" value="1/2 cup">1/2 Cup</option><option class="form-control" value="1 ounce">1 ounce</option><option class="form-control" value="1 tablespoon">1 tablespoon</option><option class="form-control" value="1 gallon">1 gallon</option><option class="form-control" value="16 ounces">16 ounces</option><option class="form-control" value="1 pound">1 pound</option></select></td><td><input class="btn btn-danger" type="button" name="removeBtn" id="removeBtn" value="Remove"></td></tr>';
 
             var instr =
                 '<tr><td><input type="text" class="form-control" id="stepNo" name="stepNo[]" placeholder="Enter step number."/></td><td><input type="text" class="form-control" id="direction[]" name="direction[]" placeholder="Enter recipe directions."/></td><td><input class="btn btn-danger" type="button" name="removeBtnn" id="removeBtnn" value="Remove"></td></tr>';
@@ -77,13 +77,14 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
-                <a href="#" class="nav-item nav-link">Home</a>
+                <a href="http://localhost/mealplanner/welcome.php" class="nav-item nav-link">Home</a>
                 <a href="http://localhost/mealplanner/recipeAdd.php" class="nav-item nav-link active text-primary">Add Recipe</a>
                 <a href="http://localhost/mealplanner/meals.php" class="nav-item nav-link">Plan Weekly Meal</a>
+                <a href="http://localhost/mealplanner/viewmeals.php" class="nav-item nav-link">View Meals, Ingredients & Shopping List</a>
             </div>
             <div class="navbar-nav ml-auto">
-                <a href="#" class="nav-item nav-link">Welcome, <?php echo htmlspecialchars($_SESSION["username"]); ?></a>
-                <a href="http://localhost/mealplanner/logout.php" class="nav-item nav-link">Logout</a>
+                <a href="#" class="nav-item nav-link text-info">Welcome, <?php echo htmlspecialchars($_SESSION["username"]); ?></a>
+                <a href="http://localhost/mealplanner/logout.php" class="nav-item nav-link text-danger">Logout</a>
             </div>
         </div>
     </nav>
@@ -120,6 +121,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     $ssave = "INSERT INTO recipe(recName, calorie, recDate) VALUES ('".$recName."', '".$calorie."', '".$cdate."')";         
                     $query = mysqli_query($cconn, $ssave);
 
+                    echo '<br>';
                     echo '<div class="alert alert-success" role="alert">';
                     echo "Recipe has been successfully saved.";
                     echo '</div>';
@@ -159,22 +161,25 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                 if ($value == "Seasoning") {
                                     $value = 4;
                                 }
-                                if ($value == "Dairy") {
+                                if ($value == "Vegetables") {
                                     $value = 5;
                                 }
-                                if ($value == "Fruits") {
+                                if ($value == "Meat") {
                                     $value = 6;
                                 }
-                                if ($value == "Beans") {
+                                if ($value == "Dairy") {
                                     $value = 7;
+                                }
+                                if ($value == "Fruits") {
+                                    $value = 8;
+                                }
+                                if ($value == "Beans") {
+                                    $value = 9;
                                 }
                                 $save = "INSERT INTO recIngredient(recID, ingredientID, measurement) VALUES('".$rrrowi."','".$value."', '".$measuremnt[$key]."')";
                                     
                                 $query = mysqli_query($conn, $save);
                             }
-                            echo '<div class="alert alert-success" role="alert">';
-                            echo "Recipe has been successfully saved.";
-                            echo '</div>';
                         }
                     ?>
 
@@ -189,6 +194,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                 <option class="form-control" value="Grains">Grains</option>
                                 <option class="form-control" value="Seasoning">Seasoning</option>
                                 <option class="form-control" value="Vegetables">Vegetables</option>
+                                <option class="form-control" value="Meat">Meat</option>
                                 <option class="form-control" value="Dairy">Dairy</option>
                                 <option class="form-control" value="Fruits">Fruits</option>
                                 <option class="form-control" value="Beans">Beans</option>
@@ -233,9 +239,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                 $isave = "INSERT INTO instructions(instructID, recID, direction) VALUES ('".$vvalue."','".$rrowii."','".$direction[$kkey]."')";
                                 $query = mysqli_query($connn, $isave);
                             }
-                            echo '<div class="alert alert-success" role="alert">';
-                            echo "Recipe has been successfully saved.";
-                            echo '</div>';
                         }
                     ?>
 
